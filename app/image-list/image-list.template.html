@@ -1,0 +1,47 @@
+<!--
+<ul>
+    <li ng-repeat="image in images">
+        <span>{{image.data.title}}</span>
+        <p>{{image.data.author}}</p>
+    </li>
+</ul>
+-->
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+      <p>
+        Search: <input ng-model="this.query" />
+      </p>
+
+      <p>
+        Sort by:
+        <select ng-model="this.orderProp">
+          <option value="data.title">Title</option>
+          <option value="data.author">Author</option>
+        </select>
+      </p>
+
+    </div>
+    <div class="col-md-10">
+      <!--Body content-->
+
+      <ul >
+        <li ng-repeat="image in this.images | filter:this.query | orderBy:this.orderProp" >
+            
+            <div class="imageThumbnail">
+
+              <a href="#!/images/{{image.data.id}}"> 
+                <img ng-src="{{image.data.preview.images[0].source.url}}" class="img-circle" width="100" height="100"/>
+              </a>
+              <span class="sp">{{image.data.title}}</span>
+              <br>
+
+            </div>    
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>
