@@ -1,0 +1,1 @@
+web: node app/app.config.js
